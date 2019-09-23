@@ -157,7 +157,6 @@ namespace PracticeProblem
         private void SearchButton_Click(object sender, EventArgs e)
         {
             displayRichTextBox.Clear();
-            idRadioButton.Checked = true;
             string SearchResult = "";
             int i = 0;
             if(idRadioButton.Checked == true)
@@ -169,15 +168,23 @@ namespace PracticeProblem
                                     "\nGPA Point: " + gpas[i] + "\n\n------------------";
                     displayRichTextBox.AppendText(SearchResult);
                 }
+                else
+                {
+                    MessageBox.Show("ID does not found!!!");
+                }
             }
             else if(nameRadioButton.Checked == true)
             {
                 if (names.Contains(searchTextBox.Text) == true)
                 {
-                    i = ids.IndexOf(searchTextBox.Text);
+                    i = names.IndexOf(searchTextBox.Text);
                     SearchResult = "\n------------\nID: " + ids[i] + "\nName: " + names[i] + "\nMobie: " + mobiles[i] + "\nAge: " + ages[i] + "\nAdress: " + addresses[i] +
                                     "\nGPA Point: " + gpas[i] + "\n\n------------------";
                     displayRichTextBox.AppendText(SearchResult);
+                }
+                else
+                {
+                    MessageBox.Show("Nmae does not found!!!");
                 }
             }
 
@@ -185,10 +192,14 @@ namespace PracticeProblem
             {
                 if (mobiles.Contains(searchTextBox.Text) == true)
                 {
-                    i = ids.IndexOf(searchTextBox.Text);
+                    i = mobiles.IndexOf(searchTextBox.Text);
                     SearchResult = "\n------------\nID: " + ids[i] + "\nName: " + names[i] + "\nMobie: " + mobiles[i] + "\nAge: " + ages[i] + "\nAdress: " + addresses[i] +
                                     "\nGPA Point: " + gpas[i] + "\n\n------------------";
                     displayRichTextBox.AppendText(SearchResult);
+                }
+                else
+                {
+                    MessageBox.Show("Mobile does not found!!!");
                 }
             }
             
